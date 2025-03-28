@@ -5,6 +5,7 @@ import BlogDetails from './pages/BlogDetails'
 import BrandProduct from './pages/BrandProduct'
 import Compare from './pages/Compare'
 import Home from './pages/Home'
+import CouponsDeal from './pages/CouponsDeal'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
@@ -19,9 +20,10 @@ function App() {
         <Route path='/blogdetails' element={<BlogDetails />} />
         <Route path='/brandproduct' element={<BrandProduct />} />
         <Route path='/compare' element={<Compare />} />
+        <Route path='/couponsdeal' element={<CouponsDeal />} />
       </Routes>
     </BrowserRouter>
   )
 }
 
-export default App
+export default App;

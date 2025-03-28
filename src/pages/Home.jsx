@@ -1,58 +1,12 @@
 import React from "react";
-import Categories from "../components/Header/Categories";
+import Header from "../components/Header/Header";
+// import Categories from "../components/Header/Categories";
 
 function Home() {
   return (
     <div>
-      <div>
-        <header className="header-main">
-          <div className="container">
-            <div className="header-inner d-flex align-items-center justify-content-between">
-              <div className="logo-tab">
-                <a href="" className="logo">
-                  <img src="assets/img/logo.png" alt="Logo" />
-                </a>
-              </div>
-
-              <div className="search-tab">
-                <div className="search-group">
-                  <input
-                    type="text"
-                    placeholder="Search price, deal & coupons"
-                  />
-                  <button type="button">Search Now</button>
-                </div>
-              </div>
-
-              <div className="m-search">
-                <a href="javascript:void(0);" className="m-search-btn">
-                  <i className="fa-solid fa-magnifying-glass"></i>
-                </a>
-              </div>
-
-              <div className="button-tab d-flex align-items-center">
-                <Categories /> {/* Use the Categories component here */}
-                <div className="coupon-tab">
-                  <button className="btn btn-primary">Coupon & Deals</button>
-                  <div className="coupon-menu">
-                    <ul>
-                      <li>
-                        <a href="">Mobile Phones</a>
-                      </li>
-                      <li>
-                        <a href="">Mobile Phones Accessories</a>
-                      </li>
-                      <li>
-                        <a href="">Tablets</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-      </div>
+      <Header />
+      <div></div>
       <section className="top-banner d-flex align-items-center">
         <div className="container">
           <div className="banner-inner d-flex align-items-center justify-content-between">

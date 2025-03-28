@@ -1,12 +1,10 @@
-
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Categories.css";
 
 function Categories() {
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null); 
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
 
   const BASE_URL = process.env.REACT_APP_BASE_URL;
