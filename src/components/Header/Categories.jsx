@@ -23,7 +23,7 @@ function Categories() {
         }
       })
       .catch((error) => console.error("Error fetching categories:", error));
-  }, []);
+  }, [BASE_URL]);
 
   return (
     <div className="category-tab">
