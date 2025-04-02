@@ -3,9 +3,12 @@ import Header from "../components/Header/Header";
 import FeaturedProducts from "../components/Header/FeaturedProducts";
 import PopularProduct from "../components/Header/PopularProducts";
 import TopCoupons from "../components/Header/TopCoupons";
-import TopDeals from "../components/Header/TopDeals";
+// import TopDeals from "../components/Header/StoreDirectory";
+import StoreDirectory from "../components/Header/StoreDirectory";
 import PopularBrands from "../components/Header/PopularBrands";
-import Footer from "../components/Header/Footer";
+import Footer from "../components/Footer/Footer";
+import TopBanner from "../components/Footer/TopBanner";
+import TopDeals from "./TopDeals";
 
 // import "./Home.css";
 // import Categories from "../components/Header/Categories";
@@ -14,24 +17,12 @@ function Home() {
   return (
     <div>
       <Header />
-      <section className="top-banner d-flex align-items-center">
-        <div className="container">
-          <div className="banner-inner d-flex align-items-center justify-content-between">
-            <div className="banner-content">
-              <h1>We have a deal for you!</h1>
-              <h3>
-                With 116,947 offers from 49,654 stores, we have a couponto save
-                you an average of $21 on your next purchase
-              </h3>
-            </div>
-            <img src="assets/img/banner-img.png" alt="" />
-          </div>
-        </div>
-      </section>
+      <TopBanner />
       <FeaturedProducts />
       <PopularProduct />
       <TopCoupons />
       <TopDeals />
+      <StoreDirectory />
       <PopularBrands />
       <Footer />
 

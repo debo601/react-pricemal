@@ -1,0 +1,46 @@
+/* Full-page styling */
+.terms-page {
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  background-color: #f8f9fa; /* Light background */
+  margin: 0;
+  padding: 0;
+}
+
+/* Centered container */
+.terms-container {
+  width: 50%;
+  max-width: 800px;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Keeps readability */
+}
+
+/* Heading */
+.terms-container h1 {
+  color: #333;
+  font-size: 28px;
+  text-align: center; /* Centers title */
+  margin-bottom: 15px;
+}
+
+/* Paragraph and list styling */
+.terms-container p,
+.terms-container li {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .terms-container {
+    width: 90%;
+    padding: 20px;
+  }
+}
