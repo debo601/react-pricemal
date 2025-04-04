@@ -23,6 +23,7 @@ function Home() {
       <TopCoupons />
       <TopDeals />
       <StoreDirectory />
+      {/* <Categories />   */}
       <PopularBrands />
       <Footer />
 

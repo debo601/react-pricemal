@@ -8,6 +8,7 @@ function Categories() {
   const [isVisible, setIsVisible] = useState(false);
 
   const BASE_URL = process.env.REACT_APP_BASE_URL;
+  console.log(`base url:`, BASE_URL);
   const STORAGE_URL = process.env.REACT_APP_STORAGE_URL;
 
   useEffect(() => {
