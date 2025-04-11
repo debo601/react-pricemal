@@ -1,64 +1,98 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios"; // Importing axios
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import Slider from "react-slick";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./FeaturedProducts.css";
 
 const FeaturedProducts = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // To track the loading state
+  const [loading, setLoading] = useState(true);
+  const sliderRef = useRef(null);
 
-  const API_URL = `${process.env.REACT_APP_BASE_URL}api/featured-products`; // The API URL
-  console.log("Constructed API URL:", API_URL);
+  const API_URL = `${process.env.REACT_APP_BASE_URL}api/featured-products`;
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // Using axios to get data from the API
         const response = await axios.get(API_URL);
-
-        console.log("API response data:", response.data); // For debugging
-
-        // Check if the response contains product data and update the state accordingly
         if (response.data.status === "success" && response.data.data) {
-          setProducts(response.data.data); // Set the product data correctly
-        } else {
-          setProducts([]); // If no data or not a success status
+          setProducts(response.data.data);
         }
-        setLoading(false); // Stop loading once data is fetched
       } catch (error) {
-        setLoading(false); // Stop loading if there's an error
+        console.error("Error fetching products", error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchProducts(); // Call the function to fetch products
-  }, [API_URL]); // The dependency array, ensures the effect runs only once
+    fetchProducts();
+  }, [API_URL]);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3, slidesToScroll: 3 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2, slidesToScroll: 2 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1, slidesToScroll: 1 },
+      },
+    ],
+  };
 
   return (
     <section className="featured-products">
-      <h2>Featured Products</h2>
-      <div className="products-grid">
-        {loading ? (
-          <p>Loading products...</p> // Show loading message while fetching
-        ) : products.length > 0 ? (
-          products.map((product) => (
+      <div className="top-bar">
+        <h2>Featured Products</h2>
+        <div className="controls">
+          <button
+            onClick={() => sliderRef.current?.slickPrev()}
+            className="arrow"
+          >
+            <FaArrowLeft />
+          </button>
+          <button
+            onClick={() => sliderRef.current?.slickNext()}
+            className="arrow"
+          >
+            <FaArrowRight />
+          </button>
+          <a href="#" className="view-all">
+            View all
+          </a>
+        </div>
+      </div>
+
+      {loading ? (
+        <p>Loading products...</p>
+      ) : (
+        <Slider {...settings} ref={sliderRef}>
+          {products.map((product) => (
             <div className="product-card" key={product.id}>
-              <img
-                src={product.image_url} // Use the correct image URL
-                alt={product.name}
-              />
+              <img src={product.image_url} alt={product.name} />
               <h3>{product.name}</h3>
-              <p>Price: {product.price}</p>
-              <a href={product.slug} className="btn">
+              <p>
+                from <strong>₹{product.price}</strong>
+              </p>
+              <a href={product.slug} className="btn buy-now">
                 Buy Now
               </a>
-              <button className="btn compare">
-                Compare Price
-              </button>
+              <button className="btn compare">Compare Price</button>
             </div>
-          ))
-        ) : (
-          <p>No featured products available at the moment.</p> // If no products are returned
-        )}
-      </div>
+          ))}
+        </Slider>
+      )}
     </section>
   );
 };

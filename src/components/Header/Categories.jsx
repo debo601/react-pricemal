@@ -13,7 +13,7 @@ function Categories() {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/categories-with-subcategories`) // Fetch categories with subcategories
+      .get(`${BASE_URL}api/categories-with-subcategories`) 
       .then((response) => {
         console.log("API Response:", response.data);
 
@@ -60,7 +60,7 @@ function Categories() {
                 {category.name}
               </a>
 
-              {/* Show subcategories when this category is clicked */}
+            
               {selectedCategory === category.id && category.subcategories && (
                 <ul className="subcategory-list">
                   {category.subcategories.length > 0 ? (

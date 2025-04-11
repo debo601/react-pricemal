@@ -34,7 +34,7 @@ const TopDeals = () => {
       <div className="container">
         <div className="section-title-top d-flex align-items-center justify-content-between">
           <h3>Top Deals</h3>
-          <a href="" className="btn btn-secondary">
+          <a href="" className="view-all">
             View all
           </a>
         </div>

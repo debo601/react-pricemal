@@ -27,7 +27,7 @@ const TopDeals = () => {
     <section className="store-directory bg-grey">
       <div className="container">
         <div className="section-title-top d-flex align-items-center justify-content-between">
-          <h3>Store Directory</h3>
+          <h3>Store Directory</h3>``
         </div>
         <div className="section-content">
           <div className="brand-list d-flex align-items-start flex-wrap">

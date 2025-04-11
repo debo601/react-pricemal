@@ -8,7 +8,11 @@ import Home from './pages/Home'
 import Terms from './pages/Terms'
 import CouponsDeal from './pages/CouponsDeal'
 import ContactUs from './pages/ContactUs'
+// import SearchResults from "./pages/SearchResults";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import SubcategoryPage from "./pages/SubCategoryPage"
+
 
 
 
@@ -25,6 +29,12 @@ function App() {
         <Route path='/contactus' element={<ContactUs />} />
         <Route path='/couponsdeal' element={<CouponsDeal />} />
         <Route path='/terms' element={<Terms />} />
+        {/* <Route path="/search" element={<SearchResults />} /> */}
+        <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+        <Route
+          path="/category/:parentSlug/:subcategorySlug"
+          element={<SubcategoryPage />}
+        />
       </Routes>
     </BrowserRouter>
   )

@@ -6,7 +6,7 @@ const PopularBrands = () => {
   const [loading, setLoading] = useState(true);
 
   const API_URL = `${process.env.REACT_APP_BASE_URL}api/get-all-brands`;
-  const IMAGE_BASE_URL = process.env.REACT_APP_BASE_URL; // Check if this is correct
+  const IMAGE_BASE_URL = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     const fetchBrands = async () => {
@@ -14,7 +14,7 @@ const PopularBrands = () => {
         const response = await axios.get(API_URL);
         if (response.data.status === "success") {
           setBrands(response.data.data);
-          console.log("Brands Data:", response.data.data); // Debugging
+          console.log("Brands Data:", response.data.data);
         }
       } catch (error) {
         console.error("Error fetching brands:", error);
@@ -31,7 +31,7 @@ const PopularBrands = () => {
       <div className="container">
         <div className="section-title-top d-flex align-items-center justify-content-between">
           <h3>Popular Brands</h3>
-          <a href="/brands" className="btn btn-secondary">
+          <a href="/brands" className="view-all">
             View all
           </a>
         </div>
@@ -41,7 +41,6 @@ const PopularBrands = () => {
               <p>Loading...</p>
             ) : brands.length > 0 ? (
               brands.map((brand) => {
-                // Construct correct image URL
                 const imageUrl = `${IMAGE_BASE_URL}/storage/${brand.logo}`;
                 console.log("Image URL:", imageUrl); // Debugging
 
@@ -53,7 +52,7 @@ const PopularBrands = () => {
                         alt={brand.name}
                         className="brand-logo"
                         onError={(e) => {
-                          e.target.src = "/images/default-brand.png"; // Fallback image
+                          e.target.src = "/images/default-brand.png";
                         }}
                       />
                     </a>

@@ -56,10 +56,10 @@ function Footer() {
                   <Link to="/terms">Terms & Conditions</Link>
                 </li>
                 <li>
-                  <Link to="">Privacy Policy</Link>
+                  <Link to="/PrivacyPolicy">Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link to="">Blog</Link>
+                  <Link to="/Blog">Blog</Link>
                 </li>
                 <li>
                   <Link to="">Product Review</Link>

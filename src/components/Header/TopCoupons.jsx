@@ -33,7 +33,7 @@ const TopCoupons = () => {
       <div className="container">
         <div className="section-title-top d-flex align-items-center justify-content-between">
           <h3>Top Coupons</h3>
-          <Link to="/couponsdeal" className="btn btn-secondary">
+          <Link to="/couponsdeal" className="view-all">
             View all
           </Link>
         </div>
