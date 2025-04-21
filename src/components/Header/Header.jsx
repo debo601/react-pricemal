@@ -54,9 +54,15 @@ function Header() {
                 </Link>
                 <div className="coupon-menu">
                   <ul>
-                    <li><a href="">Mobile Phones</a></li>
-                    <li><a href="">Mobile Phones Accessories</a></li>
-                    <li><a href="">Tablets</a></li>
+                    <li>
+                      <a href="">Mobile Phones</a>
+                    </li>
+                    <li>
+                      <a href="">Mobile Phones Accessories</a>
+                    </li>
+                    <li>
+                      <a href="">Tablets</a>
+                    </li>
                   </ul>
                 </div>
               </div>

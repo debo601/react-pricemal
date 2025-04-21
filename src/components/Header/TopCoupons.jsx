@@ -28,6 +28,13 @@ const TopCoupons = () => {
     fetchCoupons();
   }, []);
 
+  const MAX_TITLE_LENGTH = 25;
+  const MAX_DESC_LENGTH = 100;
+
+  const stripHtmlTags = (html) => {
+    return html.replace(/<[^>]+>/g, "");
+  };
+
   return (
     <section className="top-coupons">
       <div className="container">
@@ -49,13 +56,21 @@ const TopCoupons = () => {
                       <img src={coupon.store_logo} alt={coupon.name} />
                     </div>
                     <div className="offer-content">
-                      <h3>{coupon.title}</h3>
+                      <h3>
+                        {coupon.title.length > MAX_TITLE_LENGTH
+                          ? `${coupon.title.substring(0, MAX_TITLE_LENGTH)}...`
+                          : coupon.title}
+                      </h3>
                       {coupon.description ? (
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: coupon.description,
-                          }}
-                        />
+                        <p>
+                          {stripHtmlTags(coupon.description).length >
+                          MAX_DESC_LENGTH
+                            ? `${stripHtmlTags(coupon.description).substring(
+                                0,
+                                MAX_DESC_LENGTH
+                              )}...`
+                            : stripHtmlTags(coupon.description)}
+                        </p>
                       ) : (
                         <p>No description available</p>
                       )}

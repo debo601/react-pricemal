@@ -29,6 +29,10 @@ const TopDeals = () => {
   const MAX_TITLE_LENGTH = 25;
   const MAX_DESC_LENGTH = 100;
 
+  const stripHtmlTags = (html) => {
+    return html.replace(/<[^>]+>/g, "");
+  };
+
   return (
     <section className="top-deals">
       <div className="container">
@@ -57,12 +61,13 @@ const TopDeals = () => {
                       </h3>
                       {deal.description ? (
                         <p>
-                          {deal.description.length > MAX_DESC_LENGTH
-                            ? `${deal.description.substring(
+                          {stripHtmlTags(deal.description).length >
+                          MAX_DESC_LENGTH
+                            ? `${stripHtmlTags(deal.description).substring(
                                 0,
                                 MAX_DESC_LENGTH
                               )}...`
-                            : deal.description}
+                            : stripHtmlTags(deal.description)}
                         </p>
                       ) : (
                         <p>No description available</p>
